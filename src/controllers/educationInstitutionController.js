@@ -16,3 +16,7 @@ export const updateController = async (req, res) => {
     const response = await EducationInstitution.findOneAndUpdate({_id: req.user.id}, educationInstitution, {new: true});
     res.status(200).json(response);
 };
+
+export const getPersonalController = (req, res) => {
+    res.status(200).json(req.user);
+};

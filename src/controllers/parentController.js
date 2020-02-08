@@ -16,3 +16,7 @@ export const updateController = async (req, res) => {
     const response = await Parent.findOneAndUpdate({_id: req.user.id}, parent, {new: true});
     res.status(200).json(response);
 };
+
+export const getPersonalController = (req, res) => {
+    res.status(200).json(req.user);
+};

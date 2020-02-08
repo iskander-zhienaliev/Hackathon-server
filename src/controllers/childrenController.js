@@ -18,6 +18,6 @@ export const updateController = async (req, res) => {
     res.status(200).json(response);
 };
 
-export const get = () => {
-
+export const getPersonalController = (req, res) => {
+    res.status(200).json(req.user);
 };
