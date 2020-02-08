@@ -42,3 +42,8 @@ export const getAllController = async (req, res) => {
     const allProjects = await Project.find({});
     res.status(200).json(allProjects);
 };
+
+export const getByIdController = async (req, res) => {
+    const project = await Project.findById(req.params.id);
+    res.status(200).json(project);
+};

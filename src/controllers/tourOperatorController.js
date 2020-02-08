@@ -20,3 +20,8 @@ export const updateController = async (req, res) => {
 export const getPersonalController = (req, res) => {
     res.status(200).json(req.user);
 };
+
+export const getByIdController = async (req, res) => {
+    const tourOperator = await TourOperator.findById(req.params.id).select('-password');
+    res.status(200).json(tourOperator);
+};
