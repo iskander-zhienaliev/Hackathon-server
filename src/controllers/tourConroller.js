@@ -7,6 +7,7 @@ export const createController = async (req, res) => {
         res.status(400).json({
             message: 'message cannot be empty'
         });
+        return;
     }
     const tour = new Tour({
         _id: new mongoose.mongo.ObjectId,
@@ -25,6 +26,7 @@ export const createController = async (req, res) => {
             if(err) return res.status(500).json(err);
             await TourOperator.findOneAndUpdate({_id: req.user.id},{$push: {tourList: tour}},{new: true});
         });
+        res.status(200).json(tour);
     } catch (err) {
         res.status(500).json({
             message: "error"
