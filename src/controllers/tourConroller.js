@@ -48,3 +48,21 @@ export const getByRegionController = async (req, res) => {
     const listTours = await Tour.find({region: req.user.region});
     res.status(200).json(listTours);
 };
+
+export const consumeController = async (req, res) => {
+    if (req.body.type === 'educationConstitution') {
+        await Tour.findOneAndUpdate({_id: req.body.id},{$push: {listConsumerEducation: req.user.id}}, {new: true});
+        return res.status(200).json({
+            message: "You are consume"
+        });
+    } else if (req.body.type === 'parent') {
+        await Tour.findOneAndUpdate({_id: req.body.id},{$push: {listConsumerParent: req.user.id}}, {new: true});
+        return res.status(200).json({
+            message: "You are consume"
+        });
+    } else {
+        res.status(400).json({
+            message: "Incorrect type"
+        })
+    }
+};
