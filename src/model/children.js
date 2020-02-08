@@ -2,7 +2,7 @@ import mongoose, {Schema, Types} from 'mongoose';
 
 const childrenSchema = new Schema({
     _id: Types.ObjectId,
-    login: {
+    email: {
         type: String,
         required: true
     },
@@ -10,7 +10,6 @@ const childrenSchema = new Schema({
         type: String,
         required: true
     },
-    email: String,
     first_name: String,
     last_name: String,
     patronymic: String,
