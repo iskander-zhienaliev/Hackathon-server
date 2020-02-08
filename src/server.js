@@ -9,6 +9,7 @@ import parent from './routes/parent';
 import tourOperator from './routes/tourOperator';
 import educationInstitution from './routes/educationInstitution';
 import project from './routes/project';
+import files from './routes/files';
 
 import passportOptions from "./middleware/passport";
 
@@ -40,4 +41,6 @@ app.use('/parent', parent);
 app.use('/tourOperator', tourOperator);
 app.use('/educationInstitution', educationInstitution);
 app.use('/project', project);
+app.use('/files', files);
+
 export default app;
