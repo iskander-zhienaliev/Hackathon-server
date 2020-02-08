@@ -14,7 +14,11 @@ const tourOperatorSchema = new Schema({
     city: String,
     site: String,
     contact: String,
-    logo: String
+    logo: String,
+    tourList: [{
+        type: Types.ObjectId,
+        ref: 'Tour'
+    }]
 });
 
 const TourOperator = mongoose.model('TourOperator', tourOperatorSchema);
