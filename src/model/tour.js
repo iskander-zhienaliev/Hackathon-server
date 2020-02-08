@@ -10,6 +10,10 @@ const tourSchema = new Schema({
     status: String,
     startTour: Date,
     endTour: Date,
+    tourOperator: {
+        type: Types.ObjectId,
+        ref: 'TourOperator'
+    }
 });
 
 const Tour = mongoose.model('Tour', tourSchema);

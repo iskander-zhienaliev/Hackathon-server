@@ -9,7 +9,7 @@ export const createController = async (req, res) => {
         });
         return;
     }
-    const project = new Project({
+    const project = await new Project({
         _id: new mongoose.mongo.ObjectId,
         title: req.body.title,
         city: req.body.city,
@@ -21,9 +21,9 @@ export const createController = async (req, res) => {
         children: req.user.id
     });
     try {
-        await project.save((err) => {
+        await project.save(async (err) => {
             if (err) return res.status(500).json(err);
-            Children.findOneAndUpdate({_id: req.user.id},{projects: [...req.user.projects, project]}, {new: true});
+            await Children.findOneAndUpdate({_id: req.user.id},{$push: {projects: project}}, {new: true});
         });
         res.status(200).json(project);
     } catch (err) {
@@ -31,6 +31,11 @@ export const createController = async (req, res) => {
             message: "Что-то пошло не так"
         })
     }
+};
+
+export const updateController = async (req, res) => {
+    const project = await Project.findOneAndUpdate({_id: req.user.id}, req.body, {new:true});
+    res.status(200).json(project);
 };
 
 export const getAllController = async (req, res) => {
