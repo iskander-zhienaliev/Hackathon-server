@@ -5,3 +5,14 @@ export const getAllController = async (req, res) => {
     res.status(200).json(educationInstitution);
 };
 
+export const updateController = async (req, res) => {
+    const educationInstitution = req.body;
+    if (!educationInstitution) {
+        res.status(400).json({
+            message: "Body cannot be empty"
+        });
+        return;
+    }
+    const response = await EducationInstitution.findOneAndUpdate({_id: req.user.id}, educationInstitution, {new: true});
+    res.status(200).json(response);
+};

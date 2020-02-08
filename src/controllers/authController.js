@@ -37,7 +37,7 @@ export const registrationController = async (req, res) => {
         });
         try {
             await user.save();
-            res.status(201).json(user);
+            await res.status(201).json(user);
         } catch (err) {
             res.status(500).json({
                 message: "Что-то пошло не так"
