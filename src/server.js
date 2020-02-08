@@ -6,9 +6,9 @@ import passport from 'passport';
 import auth from './routes/auth';
 import children from './routes/children';
 import parent from './routes/parent';
-import partner from './routes/partner';
 import tourOperator from './routes/tourOperator';
 import educationInstitution from './routes/educationInstitution';
+import project from './routes/project';
 
 import passportOptions from "./middleware/passport";
 
@@ -39,5 +39,5 @@ app.use('/children', children);
 app.use('/parent', parent);
 app.use('/tourOperator', tourOperator);
 app.use('/educationInstitution', educationInstitution);
-
+app.use('/project', project);
 export default app;

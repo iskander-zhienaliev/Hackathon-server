@@ -1,7 +1,6 @@
 import {ExtractJwt, Strategy} from 'passport-jwt';
 import keys from '../config/keys';
 import Children from "../model/children";
-import Partner from "../model/partner";
 import Parent from "../model/parent";
 import EducationInstitution from "../model/education_institution";
 import TourOperator from "../model/tour_operator";

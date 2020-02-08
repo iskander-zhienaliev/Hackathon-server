@@ -2,16 +2,35 @@ import mongoose, {Schema, Types} from 'mongoose';
 
 const projectSchema = new Schema({
     _id: Types.ObjectId,
-    title: String,
-    city: String,
+    title: {
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
     problem: {
         type: String,
-        max: 1000
+        max: 1000,
+        required: true
     },
-    audience: String,
-    date: Date,
-    task: String,
-    description: String,
+    audience: {
+        type: String,
+        required: true
+    },
+    startDate: {
+        type: Date,
+        default: Date.now()
+    },
+    task: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
     active: Boolean,
     children: {
         type: Types.ObjectId,

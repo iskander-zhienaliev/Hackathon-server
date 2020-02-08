@@ -3,7 +3,6 @@ import {compareSync, genSaltSync, hashSync} from 'bcryptjs';
 import keys from '../config/keys';
 import Children from "../model/children";
 import Parent from "../model/parent";
-import Partner from "../model/partner";
 import TourOperator from "../model/tour_operator";
 import EducationInstitution from "../model/education_institution";
 import mongoose from "mongoose";

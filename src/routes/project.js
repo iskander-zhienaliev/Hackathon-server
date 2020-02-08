@@ -1,8 +1,10 @@
 import express from 'express';
-import {createController} from "../controllers/projectController";
+import {createController, getAllController} from "../controllers/projectController";
+import passport from "passport";
 
 const router = express.Router();
 
-router.post('/', createController);
+router.get('/', getAllController);
+router.post('/', passport.authenticate('jwt', {session: false}), createController);
 
 export default router;

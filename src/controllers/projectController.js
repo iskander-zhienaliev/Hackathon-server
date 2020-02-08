@@ -1,6 +1,39 @@
 import Children from "../model/children";
 import Project from "../model/project";
+import mongoose from 'mongoose';
 
-export const createController = (req, res) => {
+export const createController = async (req, res) => {
+    if (!req.body) {
+        res.status(400).json({
+            message: "Body cannot be empty"
+        });
+        return;
+    }
+    const project = new Project({
+        _id: new mongoose.mongo.ObjectId,
+        title: req.body.title,
+        city: req.body.city,
+        problem: req.body.problem,
+        audience: req.body.audience,
+        task: req.body.task,
+        description: req.body.description,
+        active: true,
+        children: req.user.id
+    });
+    try {
+        await project.save((err) => {
+            if (err) return res.status(500).json(err);
+            Children.findOneAndUpdate({_id: req.user.id},{projects: [...req.user.projects, project]}, {new: true});
+        });
+        res.status(200).json(project);
+    } catch (err) {
+        res.status(500).json({
+            message: "Что-то пошло не так"
+        })
+    }
+};
 
+export const getAllController = async (req, res) => {
+    const allProjects = await Project.find({});
+    res.status(200).json(allProjects);
 };
