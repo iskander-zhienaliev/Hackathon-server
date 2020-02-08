@@ -31,3 +31,18 @@ export const createController = async (req, res) => {
         })
     }
 };
+
+export const getByIdController = async (req, res) => {
+    const tour = await Tour.findById(req.params.id);
+    res.status(200).json(tour);
+};
+
+export const getAllController = async (req, res) => {
+    const listTours = await Tour.find({});
+    res.status(200).json(listTours);
+};
+
+export const getByRegionController = async (req, res) => {
+    const listTours = await Tour.find({region: req.user.region});
+    res.status(200).json(listTours);
+};

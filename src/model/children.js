@@ -34,7 +34,11 @@ const childrenSchema = new Schema({
         ref: 'Project'
     }],
     interests: [Number],
-    accessibility: Boolean
+    accessibility: Boolean,
+    listApprovedTour: [{
+        type: Types.ObjectId,
+        ref: 'Tour'
+    }]
 });
 
 const Children = mongoose.model('Children', childrenSchema);

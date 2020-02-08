@@ -13,7 +13,15 @@ const tourSchema = new Schema({
     tourOperator: {
         type: Types.ObjectId,
         ref: 'TourOperator'
-    }
+    },
+    listConsumerEducation: [{
+        type: Types.ObjectId,
+        ref: 'EducationInstitution'
+    }],
+    listConsumerParent: [{
+        type: Types.ObjectId,
+        ref: 'Parent'
+    }]
 });
 
 const Tour = mongoose.model('Tour', tourSchema);

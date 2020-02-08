@@ -10,11 +10,15 @@ const tourOperatorSchema = new Schema({
         type:String,
         required: true
     },
+    region: String,
     company: String,
     city: String,
     site: String,
     contact: String,
     logo: String,
+    INN: Number,
+    director: String,
+    curator: String,
     tourList: [{
         type: Types.ObjectId,
         ref: 'Tour'

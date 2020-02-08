@@ -13,10 +13,16 @@ const parentSchema = new Schema({
     first_name: String,
     last_name: String,
     patronymic: String,
+    region: String,
     city: String,
+    phone: String,
     child: [{
         type: Types.ObjectId,
         ref: 'Children'
+    }],
+    listTours: [{
+        type: Types.ObjectId,
+        ref: 'Tour'
     }]
 });
 

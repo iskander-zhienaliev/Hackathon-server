@@ -10,11 +10,20 @@ const educationInstitutionSchema = new Schema({
         type:String,
         required: true
     },
+    region: String,
     company: String,
     city: String,
     site: String,
     contact: String,
-    logo: String
+    logo: String,
+    listTour: [{
+        type: Types.ObjectId,
+        ref: 'Tour'
+    }],
+    listProjects: [{
+        type: Types.ObjectId,
+        ref: 'Project'
+    }]
 });
 
 const EducationInstitution = mongoose.model('EducationInstitution', educationInstitutionSchema);
