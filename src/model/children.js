@@ -32,7 +32,8 @@ const childrenSchema = new Schema({
     projects:[{
         type: Types.ObjectId,
         ref: 'Project'
-    }]
+    }],
+    interests: [Number]
 });
 
 const Children = mongoose.model('Children', childrenSchema);
