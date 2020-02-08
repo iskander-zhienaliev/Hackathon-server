@@ -39,6 +39,5 @@ app.use('/children', children);
 app.use('/parent', parent);
 app.use('/tourOperator', tourOperator);
 app.use('/educationInstitution', educationInstitution);
-app.use('/partner', partner);
 
 export default app;

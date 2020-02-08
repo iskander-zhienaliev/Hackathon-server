@@ -56,8 +56,6 @@ const findUserFromDb = async (req, res) => {
         candidate = await EducationInstitution.findOne({login: req.body.login});
     } else if (req.body.type === 'tourOperator') {
         candidate = await TourOperator.findOne({login: req.body.login});
-    } else if (req.body.type === 'partner') {
-        candidate = await Partner.findOne({login: req.body.login});
     } else {
         res.status(400).json({
             message: "Not valid type"
@@ -75,8 +73,6 @@ const createUser = (type, obj) => {
         return new EducationInstitution(obj);
     } else if (type === 'tourOperator') {
         return new TourOperator(obj);
-    } else if (type === 'partner') {
-        return new Partner(obj);
     } else {
         throw Error();
     }

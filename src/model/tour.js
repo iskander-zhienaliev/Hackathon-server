@@ -7,6 +7,9 @@ const tourSchema = new Schema({
     days: Number,
     countChildren: Number,
     price: Number,
+    status: String,
+    startTour: Date,
+    endTour: Date,
 });
 
 const Tour = mongoose.model('Tour', tourSchema);

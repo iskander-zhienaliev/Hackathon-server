@@ -24,8 +24,6 @@ const passportOptions = (passport) => {
                     user = await EducationInstitution.findById(payload.id);
                 } else if (payload.type === 'tourOperator') {
                     user = await TourOperator.findById(payload.id);
-                } else if (payload.type === 'partner') {
-                    user = await Partner.findById(payload.id);
                 }
 
                 if (user) {
